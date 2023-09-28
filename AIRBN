@@ -1,0 +1,20 @@
+import requests
+from bs4 import BeautifulSoup
+
+# Hacer una solicitud GET a la página web
+
+url = 'https://www.airbnb.com.ar/'
+response = requests.get(url)
+
+# Verificar si la solicitud fue exitosa (código de respuesta 200)
+if response.status_code == 200:
+    soup = BeautifulSoup(response.text, 'html.parser')
+    
+    # Encontrar todos los elementos HTML que contienen XXX
+    titulos = soup.find_all('h2', class_='titulo-xxx')  
+    
+    # Iterar sobre los títulos y mostrarlos
+    for titulo in titulos:
+        print(titulo.text)
+else:
+    print(f'Error al hacer la solicitud. Código de respuesta: {response.status_code}')
