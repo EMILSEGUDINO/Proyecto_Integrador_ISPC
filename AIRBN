@@ -1,10 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
-
-# Hacer una solicitud GET a la página web
-
-url = 'https://www.airbnb.com.ar/'
-response = requests.get(url)
+r = requests.get('https://www.airbnb.com.ar/')
+soup = BeautifulSoup(r.text, 'lxml')
 
 # Verificar si la solicitud fue exitosa (código de respuesta 200)
 if response.status_code == 200:
