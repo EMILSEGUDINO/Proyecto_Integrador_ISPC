@@ -10,8 +10,8 @@ response = requests.get(url)
 if response.status_code == 200:
     soup = BeautifulSoup(response.text, 'html.parser')
     
-    # Encontrar todos los elementos HTML que contienen XXX
-    titulos = soup.find_all('h2', class_='titulo-xxx')  
+    # Encontrar todos los elementos HTML que contienen cabaña
+    titulos = soup.find_all('h2', class_='titulo-cabaña')  
     
     # Iterar sobre los títulos y mostrarlos
     for titulo in titulos:
